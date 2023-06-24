@@ -13,24 +13,27 @@
       <h1>Conversor de Medidas</h1>
       
       <section>     
-
+        
+        <!-- Campo de entrada -->
         <div class="entrada">
           <label for="entrada">Digite o valor a ser convertido</label>
           <input type="number" name="entrada" id="entrada">
         </div>
-
+        
+        <!-- Seleção da categoria -->
         <div class="select-titulo">
           <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset="">
           <p>Selecione a Categoria</p>
         </div>
         
         <select name="categoria" id="categoria" class="categoria">
-          <option value="comprimento">Selecione a Categoria</option>
+          <option value="">Selecione a Categoria</option>
           <option value="comprimento">Comprimento</option>
           <option value="peso">Peso</option>
           <option value="temperatura">Temperatura</option>
         </select>
 
+        <!-- Seleção das unidades -->
         <div class="select-unidades" id="unidades">
           <div class="select-titulo">
             <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset="">
@@ -44,18 +47,19 @@
           </select>
         </div>
 
+        <!-- Resultado da conversão -->
         <div class="resultado">
           <button id="resultado" onclick="exibirResultado()">Converter</button>
-          <input type="text" name="resultado" readonly>
+          <input type="text" name="resultado" id="exibir-resultado" readonly>
         </div>
         
       </section>
     </main>
     <footer>
       <p>Feito com 💜 por PriscilaCS</p>
-  </footer>
+    </footer>
 
-  <script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 
   </body>
 </html>

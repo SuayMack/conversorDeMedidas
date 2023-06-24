@@ -1,27 +1,36 @@
 // Seleciona o elemento HTML com o id 'categoria' e o armazena na variável 'categoria'
-var categoria = document.getElementById('categoria');
+var categoria = document.getElementById('categoria')
 
 // Seleciona o elemento HTML com o id 'entrada' e o armazena na variável 'entrada'
-var entrada = document.getElementById('entrada');
+var entrada = document.getElementById('entrada')
 
 // Seleciona o elemento HTML com o id 'unidade-entrada' e o armazena na variável 'unidadeEntrada'
-var unidadeEntrada = document.getElementById('unidade-entrada');
+var unidadeEntrada = document.getElementById('unidade-entrada')
 
 // Seleciona o elemento HTML com o id 'unidade-saida' e o armazena na variável 'unidadeSaida'
-var unidadeSaida = document.getElementById('unidade-saida');
+var unidadeSaida = document.getElementById('unidade-saida')
 
 // Seleciona o elemento HTML com o id 'unidades' e o armazena na variável 'selectUnidades'
-var selectUnidades = document.getElementById('unidades');
+var selectUnidades = document.getElementById('unidades')
+
+// Seleciona o elemento HTML com o id 'select-unidades' e o armazena na variável 'divUnidades'
+var divUnidades = document.getElementById('unidades')
+
+// Seleciona o elemento HTML com o id 'exibir-resultado' e o armazena na variável 'inputResultado'
+var inputResultado = document.getElementById('exibir-resultado')
 
 // Cria uma nova opção para o elemento <select> com o texto "optionText" e o valor "optionValue"
-new Option("optionText", "optionValue");
+new Option("optionText", "optionValue")
 
-//Funções para limpar as opções do select de unidade de entrada e de saída
+//Funções para limpar as opções do select de unidade de entrada e de saída e o resultado
 function limparOptionsEntrada() {
   unidadeEntrada.options.length = 0
 }
 function limparOptionsSaida() {
   unidadeSaida.options.length = 0
+}
+function limparResultado() {
+  inputResultado.value = ''
 }
  
 // Função para popular o select de entrada
@@ -32,26 +41,23 @@ function criarunidadeEntrada() {
   // Verifica se a categoria selecionada é 'comprimento'
   if (categoria.value == 'comprimento') {
     // Adiciona opções ao select de unidade de entrada relacionadas a comprimento
-    unidadeEntrada.options.add(new Option("Selecione a unidade", ""));
-    unidadeEntrada.options.add(new Option("Metros", "metros"));
-    unidadeEntrada.options.add(new Option("Centímetros", "centimetros"));
-    unidadeEntrada.options.add(new Option("Polegadas", "polegadas"));
+    unidadeEntrada.options.add(new Option("Metros", "metros"))
+    unidadeEntrada.options.add(new Option("Centímetros", "centimetros"))
+    unidadeEntrada.options.add(new Option("Polegadas", "polegadas"))
   }
   // Verifica se a categoria selecionada é 'peso'
   else if (categoria.value == 'peso') {
     // Adiciona opções ao select de unidade de entrada relacionadas a peso
-    unidadeEntrada.options.add(new Option("Selecione a unidade", ""));
-    unidadeEntrada.options.add(new Option("Quilogramas", "quilogramas"));
-    unidadeEntrada.options.add(new Option("Gramas", "gramas"));
-    unidadeEntrada.options.add(new Option("Libras", "libras"));
+    unidadeEntrada.options.add(new Option("Quilogramas", "quilogramas"))
+    unidadeEntrada.options.add(new Option("Gramas", "gramas"))
+    unidadeEntrada.options.add(new Option("Libras", "libras"))
   }
   // Verifica se a categoria selecionada é 'temperatura'
   else if (categoria.value == 'temperatura') {
     // Adiciona opções ao select de unidade de entrada relacionadas a temperatura
-    unidadeEntrada.options.add(new Option("Selecione a unidade", ""));
-    unidadeEntrada.options.add(new Option("Celsius", "celsius"));
-    unidadeEntrada.options.add(new Option("Fahrenheit", "fr"));
-    unidadeEntrada.options.add(new Option("Kelvin", "kelvin"));
+    unidadeEntrada.options.add(new Option("Celsius", "celsius"))
+    unidadeEntrada.options.add(new Option("Fahrenheit", "fr"))
+    unidadeEntrada.options.add(new Option("Kelvin", "kelvin"))
   }
 }
 
@@ -124,33 +130,185 @@ function criarUnidadeSaidaTemperatura() {
   }
 }
 
+//Funções de conversão 
+function converterComprimento() {  
+var valorEntrada = parseFloat(entrada.value) // Obtém o valor de entrada e converte para um número
+var unidadeEntradaSelecionada = unidadeEntrada.value // Obtém a unidade de entrada selecionada
+var unidadeSaidaSelecionada = unidadeSaida.value // Obtém a unidade de saída selecionada
+var resultado
+  //Se a unidade de entrada for metro
+  if (unidadeEntradaSelecionada == 'metros') {
+    //E se a unidade de saida for centimetros
+    if (unidadeSaidaSelecionada == 'centimetros') {
+      resultado = valorEntrada * 100; // Converte metros para centímetros
+    } else if (unidadeSaidaSelecionada == 'polegadas') {
+      resultado = valorEntrada * 39.37 // Converte metros para polegadas
+    }
+    //Senão, se a unidade de entrada for centimetros
+  } else if (unidadeEntradaSelecionada == 'centimetros') {
+    //e se a unidade de saida for metros
+    if (unidadeSaidaSelecionada == 'metros') {
+      resultado = valorEntrada / 100 // Converte centímetros para metros
+      //e se a unidade de saida for polegadas
+    } else if (unidadeSaidaSelecionada == 'polegadas') {
+      resultado = valorEntrada * 0.3937 // Converte centímetros para polegadas
+    }
+  //senão se a unidade de entrada for polegadas
+  } else if (unidadeEntradaSelecionada == 'polegadas') {
+    //e se a unidade de saida for metros
+    if (unidadeSaidaSelecionada == 'metros') {
+      resultado = valorEntrada / 39.37 // Converte polegadas para metros
+    //senão se a unidade de saida for centimetros
+    } else if (unidadeSaidaSelecionada == 'centimetros') {
+      resultado = valorEntrada / 0.3937 // Converte polegadas para centímetros
+    }
+  }
+  //insere no input o resultado
+  inputResultado.value = resultado.toFixed(2)
+  return resultado  
+}
+function converterPeso() {
+  var valorEntrada = parseFloat(entrada.value) // Obtém o valor de entrada e converte para um número
+  var unidadeEntradaSelecionada = unidadeEntrada.value // Obtém a unidade de entrada selecionada
+  var unidadeSaidaSelecionada = unidadeSaida.value // Obtém a unidade de saída selecionada
+  var resultado
+  // Se a unidade de entrada for quilograma
+  if (unidadeEntradaSelecionada == 'quilogramas') {
+    // Se a unidade de saída for libra
+    if (unidadeSaidaSelecionada == 'libras') {
+      resultado = valorEntrada * 2.2046 // Converte quilogramas para libras
+    }
+    // Se a unidade de saída for grama
+    else if (unidadeSaidaSelecionada == 'gramas') {
+      resultado = valorEntrada * 1000 // Converte quilogramas para gramas
+    }
+  }
+  // Se a unidade de entrada for libra
+  else if (unidadeEntradaSelecionada == 'libras') {
+    // Se a unidade de saída for quilograma
+    if (unidadeSaidaSelecionada == 'quilogramas') {
+      resultado = valorEntrada / 2.2046 // Converte libras para quilogramas
+    }
+    // Se a unidade de saída for grama
+    else if (unidadeSaidaSelecionada == 'gramas') {
+      resultado = valorEntrada * 453.592 // Converte libras para gramas
+    }
+  }
+  // Se a unidade de entrada for grama
+  else if (unidadeEntradaSelecionada == 'gramas') {
+    // Se a unidade de saída for quilograma
+    if (unidadeSaidaSelecionada == 'quilogramas') {
+      resultado = valorEntrada / 1000 // Converte gramas para quilogramas
+    }
+    // Se a unidade de saída for libra
+    else if (unidadeSaidaSelecionada == 'libras') {
+      resultado = valorEntrada / 453.592 // Converte gramas para libras
+    }
+  }
+  //insere no input o resultado
+  inputResultado.value = resultado.toFixed(2)
+  return resultado
+}
+function converterTemperatura() {
+  var valorEntrada = parseFloat(entrada.value) // Obtém o valor de entrada e converte para um número
+  var unidadeEntradaSelecionada = unidadeEntrada.value // Obtém a unidade de entrada selecionada
+  var unidadeSaidaSelecionada = unidadeSaida.value // Obtém a unidade de saída selecionada
+  var resultado
+  // Se a unidade de entrada for Celsius
+  if (unidadeEntradaSelecionada == 'celsius') {
+    // Se a unidade de saída for Fahrenheit
+    if (unidadeSaidaSelecionada == 'fr') {
+      resultado = (valorEntrada * 9/5) + 32 // Converte Celsius para Fahrenheit
+    }
+    // Se a unidade de saída for Kelvin
+    else if (unidadeSaidaSelecionada == 'kelvin') {
+      resultado = valorEntrada + 273.15 // Converte Celsius para Kelvin
+    }
+  }
+  // Se a unidade de entrada for Fahrenheit
+  else if (unidadeEntradaSelecionada == 'fr') {
+    // Se a unidade de saída for Celsius
+    if (unidadeSaidaSelecionada == 'celsius') {
+      resultado = (valorEntrada - 32) * 5/9 // Converte Fahrenheit para Celsius
+    }
+    // Se a unidade de saída for Kelvin
+    else if (unidadeSaidaSelecionada == 'kelvin') {
+      resultado = (valorEntrada - 32) * 5/9 + 273.15 // Converte Fahrenheit para Kelvin
+    }
+  }
+  // Se a unidade de entrada for Kelvin
+  else if (unidadeEntradaSelecionada == 'kelvin') {
+    // Se a unidade de saída for Celsius
+    if (unidadeSaidaSelecionada == 'celsius') {
+      resultado = valorEntrada - 273.15 // Converte Kelvin para Celsius
+    }
+    // Se a unidade de saída for Fahrenheit
+    else if (unidadeSaidaSelecionada == 'fr') {
+      resultado = (valorEntrada - 273.15) * 9/5 + 32 // Converte Kelvin para Fahrenheit
+    }
+  }
+  //insere no input o resultado
+  inputResultado.value = resultado.toFixed(2)
+  return resultado
+}
+
 // Adiciona um ouvinte de evento 'change' ao elemento 'categoria'
 //Quando ocorrer uma alteração no valor de categoria, ou seja, quando o usuário selecionar uma opção diferente, a função anônima é acionada.
 //Dentro dessa função, as ações seguintes são realizadas: limpar as opções do select de unidade de entrada, limpar as opções do select de unidade de saída e criar as opções do select de unidade de entrada com base na categoria selecionada.
 //Essa sequência de ações tem como objetivo atualizar as opções disponíveis nos selects de entrada e saída conforme a categoria selecionada pelo usuário.
 categoria.addEventListener('change', function () {
-// Ao ocorrer uma alteração no valor de 'categoria', executa as seguintes ações:
-// Limpa as opções do select de unidade de entrada
-limparOptionsEntrada();
-// Limpa as opções do select de unidade de saída
-limparOptionsSaida();
-// Cria as opções do select de unidade de entrada com base na categoria selecionada
-criarunidadeEntrada();
-});
-
-//Adiciona um ouvinte de evento 'change' ao elemento unidadeEntrada. Quando ocorrer uma alteração no valor de unidadeEntrada, ou seja, quando o usuário selecionar uma opção diferente, a função anônima é acionada.
-//Dentro dessa função, as ações seguintes são realizadas: limpar as opções do select de unidade de saída, adicionar uma opção vazia para "Selecione a unidade" no select de unidade de saída e criar as opções do select de unidade de saída relacionadas a comprimento, peso e temperatura com base na unidade de entrada selecionada.
-//Essa sequência de ações tem como objetivo atualizar as opções disponíveis no select de unidade de saída conforme a unidade de entrada selecionada pelo usuário.
-unidadeEntrada.addEventListener('change', function () {
-  // Ao ocorrer uma alteração no valor de 'unidadeEntrada', executa as seguintes ações:  
+  // Ao ocorrer uma alteração no valor de 'categoria', executa as seguintes ações:
+  // Limpa as opções do select de unidade de entrada
+  limparOptionsEntrada()
   // Limpa as opções do select de unidade de saída
-  limparOptionsSaida();  
-  // Adiciona uma opção vazia para "Selecione a unidade" no select de unidade de saída
-  unidadeSaida.options.add(new Option("Selecione a unidade", ""));  
-  // Cria as opções do select de unidade de saída relacionadas a comprimento
-  criarUnidadeSaidaComprimento();  
-  // Cria as opções do select de unidade de saída relacionadas a peso
-  criarUnidadeSaidaPeso();  
-  // Cria as opções do select de unidade de saída relacionadas a temperatura
-  criarUnidadeSaidaTemperatura();
+  limparOptionsSaida()
+  //Limpa o input do resultado
+  limparResultado()
+  
+  // Adiciona uma opção vazia para "Selecione a unidade" no select de unidade de entrada
+  unidadeEntrada.options.add(new Option("Selecione a unidade", ""));
+  // Cria as opções do select de unidade de entrada com base na categoria selecionada
+  criarunidadeEntrada();
 });
+  
+  //Adiciona um ouvinte de evento 'change' ao elemento unidadeEntrada. Quando ocorrer uma alteração no valor de unidadeEntrada, ou seja, quando o usuário selecionar uma opção diferente, a função anônima é acionada.
+  //Dentro dessa função, as ações seguintes são realizadas: limpar as opções do select de unidade de saída, adicionar uma opção vazia para "Selecione a unidade" no select de unidade de saída e criar as opções do select de unidade de saída relacionadas a comprimento, peso e temperatura com base na unidade de entrada selecionada.
+  //Essa sequência de ações tem como objetivo atualizar as opções disponíveis no select de unidade de saída conforme a unidade de entrada selecionada pelo usuário.
+  unidadeEntrada.addEventListener('change', function () {
+    // Ao ocorrer uma alteração no valor de 'unidadeEntrada', executa as seguintes ações:  
+    // Limpa as opções do select de unidade de saída
+    limparOptionsSaida();  
+    // Limpa o input do resultado
+    limparResultado()
+    // Adiciona uma opção vazia para "Selecione a unidade" no select de unidade de saída
+    unidadeSaida.options.add(new Option("Selecione a unidade", ""));  
+    // Cria as opções do select de unidade de saída relacionadas a comprimento
+    criarUnidadeSaidaComprimento();  
+    // Cria as opções do select de unidade de saída relacionadas a peso
+    criarUnidadeSaidaPeso();  
+    // Cria as opções do select de unidade de saída relacionadas a temperatura
+    criarUnidadeSaidaTemperatura();
+  });
+  
+//A função exibirResultado, que é chamada ao clicar no botão de converter, verifica se a entrada, a unidade de entrada e a unidade de saída têm valores. 
+//Se algum dos campos estiver vazio, exibe um alerta indicando que todos os campos devem ser preenchidos.
+//Caso contrário, verifica a categoria selecionada e chama a função de conversão apropriada com base nessa categoria.
+function exibirResultado() {
+  // Verifica se algum dos campos está vazio
+  if (entrada.value == '' || unidadeEntrada.value == ''  || unidadeSaida.value == '') {
+    alert("Todos os campos devem ser preenchidos!")
+  }else{
+    // Verifica a categoria selecionad
+    if (categoria.value == 'comprimento') {
+      // Chama a função de conversão de comprimento
+      converterComprimento()
+    }else if (categoria.value == 'peso') {
+      // Chama a função de conversão de peso
+      converterPeso()
+    }else if (categoria.value == 'temperatura') {
+      // Chama a função de conversão de temperatura
+      converterTemperatura()
+    }
+  }    
+}
+  

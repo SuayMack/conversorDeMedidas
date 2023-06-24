@@ -1,5 +1,8 @@
+/* Importação da fonte 'Inter' do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
+/* Definição das variáveis de cor e fonte */
+/*:root é um seletor CSS especial que representa o elemento raiz de um documento HTML, ou seja, o elemento <html>. É usado para definir variáveis globais de CSS que podem ser acessadas e utilizadas em qualquer lugar do documento.*/
 :root {
   /* palheta de cores: https://paletadecores.com/ */
   --roxo-light: #f5c0ff;	
@@ -8,106 +11,104 @@
 
   font-family: 'Inter', sans-serif;
 }
-
+/* Reset de estilos para todos os elementos */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   /* Para Suavisar a fonte */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;/* Suavização da fonte para navegadores Webkit */
+  -moz-osx-font-smoothing: grayscale;/* Suavização da fonte para navegadores Webkit */
 }
-
+/* Estilização do corpo do documento HTML */
 body{
   height: 100vh;
   width: 100vw;
   padding: 20px;
   display: grid;
-  background-image: url(../img/bg.jpg);
+  background-image: url(../img/bg.jpg);/* Imagem de fundo do corpo */
   background-repeat: no-repeat;
   background-size: cover;
   align-content: space-between;
   justify-items: center;
-  color: var(--roxo-light);
+  color: var(--roxo-light);/* Cor do texto */
 }
-
+/* Estilização do título principal */
 h1 {
   padding: 20px;
 }
+/* Estilização da seção principal */
 section {
   display: grid;
   row-gap: 10px;
   padding: 20px;
   min-height: 300px;
   color: var(--roxo-light);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));/* Gradiente de fundo com transparência */
+  backdrop-filter: blur(10px);/* Efeito de desfoque no fundo */
+  /* a propriedade -webkit-backdrop-filter está sendo utilizada para aplicar um efeito de desfoque com um raio de 10 pixels ao elemento que possui essa regra CSS. Isso cria um efeito estético de desfoque no plano de fundo, proporcionando um aspecto mais suave e "borrado". */
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);/* Borda com transparência */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);/* Sombra ao redor da seção */
 }
-
+/* Estilização dos elementos <select> e <input> */
 select, input {
   padding: 5px;
 }
-
+/* Estilização do <select> ao passar o mouse */
 select:hover {
-  color: var(--roxo-dark);
-  background-color: var(--roxo-light);
+  color: var(--roxo-dark);/* Cor do texto ao passar o mouse */
+  background-color: var(--roxo-light);/* Cor de fundo ao passar o mouse */
 }
-
-option:hover {
-  color: var(--roxo-light);
-  background-color: var(--roxo-dark);
-}
-
+/* Estilização do elemento com classe 'select-titulo' */
 div.select-titulo {
   display: flex;
   column-gap: 15px;
   align-items: center;
   justify-content: start;  
 }
-
+/* Estilização dos elementos com classes 'select-unidades' e 'entrada' */
 .select-unidades, .entrada {
   display: grid;
   padding: 15px;
   row-gap: 10px;
   margin-top: 10px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));/* Gradiente de fundo com transparência */
+  backdrop-filter: blur(10px);/* Efeito de desfoque no fundo */
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);/* Sombra ao redor do elemento */
 }
-
+/* Estilização dos elementos com classes 'entrada' e 'resultado' */
 .entrada, .resultado {
   align-self: end;
 }
-
+/* Estilização do elemento com classe 'resultado' */
 .resultado {
   display: flex;
   justify-content: space-evenly;
 }
-
+/* Estilização do botão */
 button {
-  background-color: var(--roxo-light);
-  color: var(--roxo-dark);
+  background-color: var(--roxo-light);/* Cor de fundo do botão */
+  color: var(--roxo-dark);/* Cor do texto do botão */
   padding: 15px;
   font-weight: 600;
-  transition: .8s;
+  transition: .8s;/* Tempo de transição nas animações */
   cursor: pointer;
   border: none;
   text-decoration: none;
   border-radius: 5px;
 }
-
+/* Estilização do botão ao passar o mouse */
 button:hover {
-  color: var(--roxo-light);
-  background-color: var(--roxo-dark);
+  color: var(--roxo-light);/* Estilização do botão ao passar o mouse */
+  background-color: var(--roxo-dark);/* Cor de fundo do botão ao passar o mouse */
   font-weight: 600;
-  transition: .8s;
+  transition: .8s;/* Tempo de transição nas animações */
 }
 
+/* Estilização do rodapé */
 footer {
   padding: 20px ;
 }
