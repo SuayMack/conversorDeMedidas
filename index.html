@@ -5,26 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Priscila Chueryz"/>
     <link rel="stylesheet" href="./css/style.css">
+
     <title>Conversor de Medidas</title>
   </head>
   <body>
-    <main class="container">
+    <main>
+
+      <h1>Conversor de Medidas</h1>
       
-      <section class="select-container">
-
-        <h1>Conversor de Medidas</h1>
-
-        <select name="categoria" id="">
+      <section>     
+        <div class="select-titulo">
+          <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset="">
+          <p>Selecione aqui</p>
+        </div>
+        
+        <select name="categoria" id="" class="categoria">
           <option value="comprimento">Comprimento</option>
           <option value="peso">Peso</option>
           <option value="temperatura">Temperatura</option>
         </select>
 
-        <select name="unidade-entrada" id="">Selecione</select>
+        <div class="select-unidades">
+          <div class="select-titulo">
+            <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset="">
+            <p>Selecione aqui</p>
+          </div>
 
-        <select name="unidade-saida" id=""></select>
+          <select name="unidade-entrada" id="" class="unidade">
+            <option value="">Selecione a Categoria</option>
+          </select>
+  
+          <select name="unidade-saida" id="" class="unidade">
+            <option value="">Selecione a Categoria</option>
+          </select>
+        </div>
+
+        <div class="resultado">
+          <label for="resultado">Resultado</label>
+          <input type="text" readonly>
+        </div>
+        
       </section>
     </main>
-    <script src="./script.js"></script>
+    <footer>
+      <p>Feito com 💜 por PriscilaCS</p>
+  </footer>
+
+    <!-- <script src="./script.js"></script> -->
+
   </body>
 </html>

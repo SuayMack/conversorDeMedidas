@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 
 :root {
-	--roxo-claro: #6f2d9c;	
-	--branco: #f9fafb;
-	--roxo-escuro: #391353;
+  /* palheta de cores: https://paletadecores.com/ */
+  --roxo-light: #f5c0ff;	
+	--roxo-médio: #7a10bb;
+	--roxo-dark: #391353;
 
   font-family: 'Inter', sans-serif;
 }
@@ -18,11 +19,95 @@
 }
 
 body{
-  background-color: var(--branco);
   height: 100vh;
+  width: 100vw;
+  padding: 20px;
   display: grid;
-  font-size: 1.5rem;
-  background-image: url('../img/bg.jpg');
+  background-image: url(../img/bg.jpg);
   background-repeat: no-repeat;
-  background-size: cover
-} 
+  background-size: cover;
+  align-content: space-between;
+  justify-items: center;
+  color: var(--roxo-light);
+}
+
+h1 {
+  padding: 20px;
+}
+section {
+  display: grid;
+  row-gap: 20px;
+  padding: 20px;
+  min-height: 300px;
+  color: var(--roxo-light);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+select:hover {
+  color: var(--roxo-dark);
+  background-color: var(--roxo-light);
+}
+
+option:hover {
+  color: var(--roxo-light);
+  background-color: var(--roxo-dark);
+}
+
+select {
+  padding: 5px;
+}
+
+div.select-titulo {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+  justify-content: start;  
+}
+
+.select-unidades {
+  display: grid;
+  padding: 20px;
+  row-gap: 15px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.resultado {
+  align-self: end;
+}
+
+/* 
+div.select-titulo p {
+  font-size: .8rem;
+  letter-spacing: 5px;
+}
+
+div.unidades {
+  display: grid;
+  row-gap: 15px;
+}
+
+select.categoria{
+  width: 80%;
+}
+
+select.unidade {
+
+}
+
+footer {
+  align-self: end;
+}
+
+footer p{
+  color: #E8E8E8;
+  text-align: center;
+} */
