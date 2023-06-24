@@ -36,7 +36,7 @@ h1 {
 }
 section {
   display: grid;
-  row-gap: 20px;
+  row-gap: 10px;
   padding: 20px;
   min-height: 300px;
   color: var(--roxo-light);
@@ -45,6 +45,10 @@ section {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+select, input {
+  padding: 5px;
 }
 
 select:hover {
@@ -57,10 +61,6 @@ option:hover {
   background-color: var(--roxo-dark);
 }
 
-select {
-  padding: 5px;
-}
-
 div.select-titulo {
   display: flex;
   column-gap: 15px;
@@ -68,10 +68,10 @@ div.select-titulo {
   justify-content: start;  
 }
 
-.select-unidades {
+.select-unidades, .entrada {
   display: grid;
-  padding: 20px;
-  row-gap: 15px;
+  padding: 15px;
+  row-gap: 10px;
   margin-top: 10px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
@@ -80,6 +80,10 @@ div.select-titulo {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-.resultado {
+.entrada, .resultado {
   align-self: end;
+}
+
+footer {
+  padding: 20px ;
 }

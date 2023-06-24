@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Priscila Chueryz"/>
     <link rel="stylesheet" href="./css/style.css">
 
     <title>Conversor de Medidas</title>
@@ -14,35 +13,40 @@
       <h1>Conversor de Medidas</h1>
       
       <section>     
+
+        <div class="entrada">
+          <label for="entrada">Digite o valor a ser convertido</label>
+          <input type="text" name="entrada" id="entrada">
+        </div>
+
         <div class="select-titulo">
           <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset="">
-          <p>Selecione aqui</p>
+          <p>Selecione a Categoria</p>
         </div>
         
-        <select name="categoria" id="" class="categoria">
+        <select name="categoria" id="categoria" class="categoria">
+          <option value="comprimento">Selecione a Categoria</option>
           <option value="comprimento">Comprimento</option>
           <option value="peso">Peso</option>
           <option value="temperatura">Temperatura</option>
         </select>
 
-        <div class="select-unidades">
+        <div class="select-unidades" id="unidades">
           <div class="select-titulo">
             <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset="">
-            <p>Selecione aqui</p>
+            <p>Selecione a Unidade</p>
           </div>
 
-          <select name="unidade-entrada" id="" class="unidade">
-            <option value="">Selecione a Categoria</option>
+          <select name="unidade-entrada" id="unidade-entrada" class="unidade-entrada">
           </select>
   
-          <select name="unidade-saida" id="" class="unidade">
-            <option value="">Selecione a Categoria</option>
+          <select name="unidade-saida" id="unidade-saida" class="unidade-saida">
           </select>
         </div>
 
         <div class="resultado">
           <label for="resultado">Resultado</label>
-          <input type="text" readonly>
+          <input type="text" name="resultado" readonly>
         </div>
         
       </section>
@@ -51,7 +55,7 @@
       <p>Feito com 💜 por PriscilaCS</p>
   </footer>
 
-    <!-- <script src="./script.js"></script> -->
+  <script src="./js/script.js"></script>
 
   </body>
 </html>
