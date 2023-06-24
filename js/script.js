@@ -123,3 +123,34 @@ function criarUnidadeSaidaTemperatura() {
     unidadeSaida.options.add(new Option("Fahrenheit", "fr"));
   }
 }
+
+// Adiciona um ouvinte de evento 'change' ao elemento 'categoria'
+//Quando ocorrer uma alteração no valor de categoria, ou seja, quando o usuário selecionar uma opção diferente, a função anônima é acionada.
+//Dentro dessa função, as ações seguintes são realizadas: limpar as opções do select de unidade de entrada, limpar as opções do select de unidade de saída e criar as opções do select de unidade de entrada com base na categoria selecionada.
+//Essa sequência de ações tem como objetivo atualizar as opções disponíveis nos selects de entrada e saída conforme a categoria selecionada pelo usuário.
+categoria.addEventListener('change', function () {
+// Ao ocorrer uma alteração no valor de 'categoria', executa as seguintes ações:
+// Limpa as opções do select de unidade de entrada
+limparOptionsEntrada();
+// Limpa as opções do select de unidade de saída
+limparOptionsSaida();
+// Cria as opções do select de unidade de entrada com base na categoria selecionada
+criarunidadeEntrada();
+});
+
+//Adiciona um ouvinte de evento 'change' ao elemento unidadeEntrada. Quando ocorrer uma alteração no valor de unidadeEntrada, ou seja, quando o usuário selecionar uma opção diferente, a função anônima é acionada.
+//Dentro dessa função, as ações seguintes são realizadas: limpar as opções do select de unidade de saída, adicionar uma opção vazia para "Selecione a unidade" no select de unidade de saída e criar as opções do select de unidade de saída relacionadas a comprimento, peso e temperatura com base na unidade de entrada selecionada.
+//Essa sequência de ações tem como objetivo atualizar as opções disponíveis no select de unidade de saída conforme a unidade de entrada selecionada pelo usuário.
+unidadeEntrada.addEventListener('change', function () {
+  // Ao ocorrer uma alteração no valor de 'unidadeEntrada', executa as seguintes ações:  
+  // Limpa as opções do select de unidade de saída
+  limparOptionsSaida();  
+  // Adiciona uma opção vazia para "Selecione a unidade" no select de unidade de saída
+  unidadeSaida.options.add(new Option("Selecione a unidade", ""));  
+  // Cria as opções do select de unidade de saída relacionadas a comprimento
+  criarUnidadeSaidaComprimento();  
+  // Cria as opções do select de unidade de saída relacionadas a peso
+  criarUnidadeSaidaPeso();  
+  // Cria as opções do select de unidade de saída relacionadas a temperatura
+  criarUnidadeSaidaTemperatura();
+});
