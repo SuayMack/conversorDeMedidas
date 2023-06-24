@@ -24,7 +24,6 @@ function limparOptionsSaida() {
   unidadeSaida.options.length = 0
 }
  
-
 // Função para popular o select de entrada
 //Essa função popula o select de unidade de entrada com opções com base na categoria selecionada. 
 //Dependendo do valor da variável categoria, diferentes opções são adicionadas ao elemento unidadeEntrada usando a função add do objeto options. 
@@ -56,5 +55,71 @@ function criarunidadeEntrada() {
   }
 }
 
-
-
+//Criei as funções para as unidades de saida separadas.
+//Poderia ter feito todas em uma só função, como fiz com a unidade de entrada, mas optei por deixá-las separadas para melhor entendimento do código
+//Essa função cria as opções do select de unidade de saída com base na unidade de entrada selecionada. 
+//Dependendo do valor da variável unidadeEntrada, diferentes opções são adicionadas ao elemento unidadeSaida usando a função add do objeto options. 
+//Cada opção possui um texto visível para o usuário e um valor associado que será usado posteriormente.
+//Função para unidades de saida COMPRIMENTO
+function criarUnidadeSaidaComprimento() {
+  // Verifica se a unidade de entrada selecionada é 'metros'
+  if (unidadeEntrada.value == 'metros') {
+    // Adiciona opções ao select de unidade de saída relacionadas a metros
+    unidadeSaida.options.add(new Option("Centímetros", "centimetros"));
+    unidadeSaida.options.add(new Option("Polegadas", "polegadas"));
+  }
+  // Verifica se a unidade de entrada selecionada é 'centímetros'
+  else if (unidadeEntrada.value == 'centimetros') {
+    // Adiciona opções ao select de unidade de saída relacionadas a centímetros
+    unidadeSaida.options.add(new Option("Metros", "metros"));
+    unidadeSaida.options.add(new Option("Polegadas", "polegadas"));
+  }
+  // Verifica se a unidade de entrada selecionada é 'polegadas'
+  else if (unidadeEntrada.value == 'polegadas') {
+    // Adiciona opções ao select de unidade de saída relacionadas a polegadas
+    unidadeSaida.options.add(new Option("Metros", "metros"));
+    unidadeSaida.options.add(new Option("Centímetros", "centimetros"));
+  }
+}
+// Função para criar as opções do select de unidade de saída relacionadas a peso
+function criarUnidadeSaidaPeso() {
+  // Verifica se a unidade de entrada selecionada é 'quilogramas'
+  if (unidadeEntrada.value == 'quilogramas') {
+    // Adiciona opções ao select de unidade de saída relacionadas a quilogramas
+    unidadeSaida.options.add(new Option("Gramas", "gramas"));
+    unidadeSaida.options.add(new Option("Libras", "libras"));
+  }
+  // Verifica se a unidade de entrada selecionada é 'gramas'
+  else if (unidadeEntrada.value == 'gramas') {
+    // Adiciona opções ao select de unidade de saída relacionadas a gramas
+    unidadeSaida.options.add(new Option("Quilogramas", "quilogramas"));
+    unidadeSaida.options.add(new Option("Libras", "libras"));
+  }
+  // Verifica se a unidade de entrada selecionada é 'libras'
+  else if (unidadeEntrada.value == 'libras') {
+    // Adiciona opções ao select de unidade de saída relacionadas a libras
+    unidadeSaida.options.add(new Option("Quilogramas", "quilogramas"));
+    unidadeSaida.options.add(new Option("Gramas", "gramas"));
+  }
+}
+// Função para criar as opções do select de unidade de saída relacionadas a temperatura
+function criarUnidadeSaidaTemperatura() {
+  // Verifica se a unidade de entrada selecionada é 'celsius'
+  if (unidadeEntrada.value == 'celsius') {
+    // Adiciona opções ao select de unidade de saída relacionadas a celsius
+    unidadeSaida.options.add(new Option("Fahrenheit", "fr"));
+    unidadeSaida.options.add(new Option("Kelvin", "kelvin"));
+  }
+  // Verifica se a unidade de entrada selecionada é 'fr'
+  else if (unidadeEntrada.value == 'fr') {
+    // Adiciona opções ao select de unidade de saída relacionadas a fr
+    unidadeSaida.options.add(new Option("Celsius", "celsius"));
+    unidadeSaida.options.add(new Option("Kelvin", "kelvin"));
+  }
+  // Verifica se a unidade de entrada selecionada é 'kelvin'
+  else if (unidadeEntrada.value == 'kelvin') {
+    // Adiciona opções ao select de unidade de saída relacionadas a kelvin
+    unidadeSaida.options.add(new Option("Celsius", "celsius"));
+    unidadeSaida.options.add(new Option("Fahrenheit", "fr"));
+  }
+}
