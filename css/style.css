@@ -83,31 +83,3 @@ div.select-titulo {
 .resultado {
   align-self: end;
 }
-
-/* 
-div.select-titulo p {
-  font-size: .8rem;
-  letter-spacing: 5px;
-}
-
-div.unidades {
-  display: grid;
-  row-gap: 15px;
-}
-
-select.categoria{
-  width: 80%;
-}
-
-select.unidade {
-
-}
-
-footer {
-  align-self: end;
-}
-
-footer p{
-  color: #E8E8E8;
-  text-align: center;
-} */
