@@ -270,6 +270,21 @@ categoria.addEventListener('change', function () {
   // Cria as opções do select de unidade de entrada com base na categoria selecionada
   criarunidadeEntrada();
 });
+
+//Tratamento para quando selecionar a unidade de entrada sem ter selecionado a categoria
+unidadeEntrada.addEventListener('click', function () {
+  if (categoria.value == '') {
+    alert("Selecione a categoria")
+  }
+})
+//Tratamento para quando selecionar a unidade de saida sem ter selecionado a categoria pu a unidade de entrada
+unidadeSaida.addEventListener('click', function () {
+  if (categoria.value == '') {
+    alert("Selecione a categoria")
+  }else if(unidadeEntrada.value == ''){
+    alert("Selecione a unidade de entrada")
+  }
+})
   
   //Adiciona um ouvinte de evento 'change' ao elemento unidadeEntrada. Quando ocorrer uma alteração no valor de unidadeEntrada, ou seja, quando o usuário selecionar uma opção diferente, a função anônima é acionada.
   //Dentro dessa função, as ações seguintes são realizadas: limpar as opções do select de unidade de saída, adicionar uma opção vazia para "Selecione a unidade" no select de unidade de saída e criar as opções do select de unidade de saída relacionadas a comprimento, peso e temperatura com base na unidade de entrada selecionada.
