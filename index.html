@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
+
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet">
 
     <title>Conversor de Medidas</title>
   </head>
@@ -11,23 +19,23 @@
     <main>
 
       <h1>Conversor de Medidas</h1>
-      
-      <section>     
-        
+
+      <section>
+
         <!-- Campo de entrada -->
         <div class="entrada">
           <label for="entrada">Digite o valor a ser convertido</label>
           <input type="number" name="entrada" id="entrada">
         </div>
-        
+
         <!-- Seleção da categoria -->
         <div class="select-titulo">
-          <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset="">
+          <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset>
           <p>Selecione a Categoria</p>
         </div>
-        
+
         <select name="categoria" id="categoria" class="categoria">
-          <option value="">Selecione a Categoria</option>
+          <option value>Selecione a Categoria</option>
           <option value="comprimento">Comprimento</option>
           <option value="peso">Peso</option>
           <option value="temperatura">Temperatura</option>
@@ -36,13 +44,14 @@
         <!-- Seleção das unidades -->
         <div class="select-unidades" id="unidades">
           <div class="select-titulo">
-            <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset="">
+            <img src="./img/arrow-down.svg" alt="flecha para baixo" srcset>
             <p>Selecione a Unidade</p>
           </div>
 
-          <select name="unidade-entrada" id="unidade-entrada" class="unidade-entrada">
+          <select name="unidade-entrada" id="unidade-entrada"
+            class="unidade-entrada">
           </select>
-  
+
           <select name="unidade-saida" id="unidade-saida" class="unidade-saida">
           </select>
         </div>
@@ -52,7 +61,7 @@
           <button id="resultado" onclick="exibirResultado()">Converter</button>
           <input type="text" name="resultado" id="exibir-resultado" readonly>
         </div>
-        
+
       </section>
     </main>
     <footer>
